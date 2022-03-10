@@ -13,6 +13,19 @@
 #define NAV 3
 
 / {
+        behaviors { 
+            // tap-preferred       
+            hm: homerow_mods {            
+                compatible = "zmk,behavior-hold-tap";            
+                label = "HOMEROW_MODS";            
+                #binding-cells = <2>;            
+                tapping-term-ms = <150>;            
+                quick-tap-ms = <0>;            
+                flavor = "tap-preferred";            
+                bindings = <&kp>, <&kp>;        
+            };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -24,7 +37,7 @@
 //                   | ESC | NAV | SPC |   | TAB | ENT | RET |
                         bindings = <
    &kp TAB   &kp Q       &kp W       &kp E      &kp R      &kp T         /**/ &kp Y        &kp U      &kp I      &kp O       &kp P          &kp BSPC
-   &kp ESC   &mt LSHFT A &mt LCTRL S &mt LGUI D &mt LALT F &mt RALT G    /**/ &mt LALT H   &mt RALT J &mt LGUI K &mt LCTRL L &mt LSHFT SEMI &kp SQT
+   &kp ESC   &hm LSHFT A &hm LCTRL S &hm LGUI D &hm LALT F &hm RALT G    /**/ &hm LALT H   &hm RALT J &hm LGUI K &hm LCTRL L &hm LSHFT SEMI &kp SQT
    &kp LSHFT &kp Z       &kp X       &kp C      &kp V      &kp B         /**/ &kp N        &kp M      &kp COMMA  &kp DOT     &kp FSLH       &kp RET
                                      &kp ESC    &mo NAV    &lt NUM SPACE /**/ &lt SYM TAB  &kp BSPC   &kp RET
                         >;
@@ -37,7 +50,7 @@
 //                   | ESC | NAV | SPC |   | TAB | ENT | RET |
                         bindings = <
    &kp TAB   &kp FSLH       &kp N7       &kp N8      &kp N9      &kp DOT       /**/ &bt BT_SEL 3 &kp F7      &kp F8      &kp F9       &kp F12       &bt BT_CLR
-   &kp ESC   &mt LSHFT STAR &mt LCTRL N4 &mt LGUI N5 &mt LALT N6 &mt RALT PLUS /**/ &bt BT_SEL 2 &mt RALT F4 &mt LGUI F5 &mt LCTRL F6 &mt LSHFT F11 &bt BT_SEL 5
+   &kp ESC   &hm LSHFT STAR &hm LCTRL N4 &hm LGUI N5 &hm LALT N6 &hm RALT PLUS /**/ &bt BT_SEL 2 &hm RALT F4 &hm LGUI F5 &hm LCTRL F6 &hm LSHFT F11 &bt BT_SEL 5
    &kp LSHFT &kp N0         &kp N1       &kp N2      &kp N3      &kp MINUS     /**/ &bt BT_SEL 1 &kp F1      &kp F2      &kp F3       &kp F10       &bt BT_SEL 4
                                          &kp ESC     &mo NAV     &lt NUM SPACE /**/ &lt SYM TAB  &kp BSPC    &kp RET
                         >;
@@ -51,7 +64,7 @@
 //                   | ESC | NAV | SPC |   | TAB | ENT | RET |
                         bindings = <
    &kp  TAB  &kp EXCL        &kp CARET      &kp HASH      &kp DLLR      &kp PRCNT     /**/ &kp AMPS      &kp RA(U)     &kp STAR      &kp RA(O)      &kp DEL         &kp DEL
-   &kp GRAVE &mt LSHFT RA(A) &mt LCTRL LBKT &mt LGUI LBRC &mt LALT LPAR &mt RALT FSLH /**/ &mt LALT BSLH &mt RALT RPAR &mt LGUI RBRC &mt LCTRL RBKT &mt LSHFT UNDER &kp TILDE
+   &kp GRAVE &hm LSHFT RA(A) &hm LCTRL LBKT &hm LGUI LBRC &hm LALT LPAR &hm RALT FSLH /**/ &hm LALT BSLH &hm RALT RPAR &hm LGUI RBRC &hm LCTRL RBKT &hm LSHFT UNDER &kp TILDE
    &kp LSHFT &kp AT          &kp RA(S)      &kp PLUS      &kp EQUAL     &kp MINUS     /**/ &kp GRAVE     &kp MINUS     &kp EQUAL     &kp PLUS       &kp PIPE        &kp RET
                     	                       &kp ESC       &mo NAV       &lt NUM SPACE /**/ &lt SYM TAB   &kp BSPC      &kp RET
                         >;
