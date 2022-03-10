@@ -22,10 +22,10 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RET  |
 //                    | CTRL| ALT | SPC |   | ENT | GUI | ALT |
                         bindings = <
-   &kp TAB        &kp Q &kp W &kp E     &kp R    &kp T              &kp Y           &kp U    &kp I     &kp O   &kp P    &kp BSPC
-   &lt NUMBER ESC &kp A &kp S &kp D     &kp F    &kp G              &kp H           &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT      &kp Z &kp X &kp C     &kp V    &kp B              &kp N           &kp M    &kp COMMA &kp DOT &kp FSLH &kp RET
-                              &kp LCTRL &kp LALT &lt NUMBER SPACE   &lt SYMBOL BSPC &kp LGUI &kp RALT
+   &kp TAB        &kp Q &kp W &kp E     &kp R            &kp T      &kp Y    &kp U           &kp I     &kp O   &kp P    &kp BSPC
+   &lt NUMBER ESC &kp A &kp S &kp D     &kp F            &kp G      &kp H    &kp J           &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT      &kp Z &kp X &kp C     &kp V            &kp B      &kp N    &kp M           &kp COMMA &kp DOT &kp FSLH &kp RET
+                              &kp LCTRL &lt NUMBER SPACE &kp LALT   &kp LGUI &lt SYMBOL BSPC &kp RALT
                         >;
                 };
                 number_layer {
@@ -35,10 +35,10 @@
 // | SHFT |  0  |  1  |  2  |  3  |  -  |   | BT1 |  F1 |  F2 |  F3 | F10 | BT4 |
 //                    | CTRL| ALT | SPC |   | ENT | GUI | ALT |
                         bindings = <
-   &kp TAB   &kp FSLH &kp N7 &kp N8    &kp N9   &kp DOT     &bt BT_SEL 3 &kp F7   &kp F8 &kp F9 &kp F12 &bt BT_CLR
-   &none     &kp STAR &kp N4 &kp N5    &kp N6   &kp PLUS    &bt BT_SEL 2 &kp F4   &kp F5 &kp F6 &kp F11 &bt BT_SEL 5
-   &kp LSHFT &kp N0   &kp N1 &kp N2    &kp N3   &kp MINUS   &bt BT_SEL 1 &kp F1   &kp F2 &kp F3 &kp F10 &bt BT_SEL 4
-                             &kp LCTRL &kp LALT &kp SPACE   &kp RET      &kp LGUI &kp RALT
+   &kp TAB   &kp FSLH &kp N7 &kp N8    &kp N9    &kp DOT     &bt BT_SEL 3 &kp F7   &kp F8   &kp F9 &kp F12 &bt BT_CLR
+   &none     &kp STAR &kp N4 &kp N5    &kp N6    &kp PLUS    &bt BT_SEL 2 &kp F4   &kp F5   &kp F6 &kp F11 &bt BT_SEL 5
+   &kp LSHFT &kp N0   &kp N1 &kp N2    &kp N3    &kp MINUS   &bt BT_SEL 1 &kp F1   &kp F2   &kp F3 &kp F10 &bt BT_SEL 4
+                             &kp LCTRL &kp SPACE &kp LALT    &kp LGUI     &kp BSPC &kp RALT
                         >;
                 };
 
@@ -49,10 +49,10 @@
 // | SHFT|     |  [  |  {  |  (  |  /  |   |  \  |  )  |  }  |  ]  | "|" |  ~  |
 //                   | CTRL| ALT | SPC |   | ENT | GUI | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT   &kp HASH  &kp DLLR   &kp PRCNT   &kp CARET &kp AMPS  &kp STAR &kp PLUS  &kp MINUS &kp DEL
-   &kp GRAVE &kp AT   &kp HOME &kp PG_DN &kp PG_UP  &kp END     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &kp EQUAL &kp GRAVE
-   &kp LSHFT &none    &kp LBKT &kp LBRC  &kp LPAR   &kp FSLH    &kp BSLH  &kp RPAR  &kp RBRC &kp RBKT  &kp PIPE  &kp TILDE
-                    	       &kp LCTRL &kp LALT   &kp SPACE   &none  &kp LGUI &kp RALT
+   &kp  TAB  &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET &kp AMPS  &kp STAR  &kp PLUS &kp EQUAL &kp DEL
+   &kp GRAVE &kp LEFT &kp DOWN &kp UP    &kp RIGHT &trans      &trans    &kp HOME  &kp PG_DN &kp PG_UP &kp END  &kp MINUS 
+   &kp LSHFT &kp AT   &kp LBKT &kp LBRC  &kp LPAR  &kp FSLH    &kp BSLH  &kp RPAR  &kp RBRC  &kp RBKT &kp PIPE  &kp TILDE
+                    	       &kp LCTRL &kp SPACE &kp LALT    &kp LGUI  &trans    &kp RALT
                         >;
                 };
         };
