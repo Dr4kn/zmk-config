@@ -66,7 +66,7 @@
    &kp  TAB  &kp EXCL        &kp CARET      &kp HASH      &kp DLLR      &kp PRCNT     /**/ &kp AMPS      &kp RA(Y)     &kp STAR      &kp RA(P)      &kp DEL         &kp DEL
    &kp GRAVE &hm LSHFT RA(Q) &hm LCTRL LBKT &hm LGUI LBRC &hm LALT LPAR &hm RALT FSLH /**/ &hm LALT BSLH &hm RALT RPAR &hm LGUI RBRC &hm LCTRL RBKT &hm LSHFT UNDER &kp TILDE
    &kp LSHFT &kp AT          &kp RA(S)      &kp PLUS      &kp EQUAL     &kp MINUS     /**/ &kp GRAVE     &kp MINUS     &kp EQUAL     &kp PLUS       &kp PIPE        &kp RET
-                    	                       &kp ESC       &mo NAV       &lt NUM SPACE /**/ &lt SYM TAB   &kp BSPC      &kp RET
+                    	                    &kp ESC       &mo NAV       &lt NUM SPACE /**/ &lt SYM TAB   &kp BSPC      &kp RET
                         >;
                 };
 
@@ -74,13 +74,13 @@
 // -----------------------------------------------------------------------------------------
 // | TAB |  <- | C_DN| C_UP|  -> |     |   |     |     |     |     | CPP | DEL |
 // |  `  | LFT | DWN |  UP | RGT |     |   |     | HOME|PG_DN|PG_UP| END |     |
-// | SHFT|     |     |     |     |     |   |     | HOME|PG_DN|PG_UP| END | RET |
+// | SHFT| SHFT| CTRL| GUI | LALT| RALT|   | LALT| RALT| LGUI| CTRL| SHFT| RET |
 //                   | ESC | NAV | SPC |   | TAB | ENT | RET |
                         bindings = <
-   &kp TAB   &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &trans        /**/ &trans      &trans   &trans    &trans    &kp C_PP &kp DEL
-   &kp ESC   &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT  &trans        /**/ &trans      &kp HOME &kp PG_DN &kp PG_UP &kp END  &trans
-   &kp LSHFT &trans     &trans       &trans       &trans     &trans        /**/ &trans      &trans   &trans    &trans    &trans   &kp RET
-                    	                &kp ESC      &mo NAV    &lt NUM SPACE /**/ &lt SYM TAB &kp BSPC &kp RET
+   &kp TAB   &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &trans        /**/ &trans      &trans   &trans    &trans    &kp C_PP  &kp DEL
+   &kp ESC   &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT  &kp LSHFT     /**/ &kp LSHFT   &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans
+   &kp LSHFT &kp LSHFT  &kp LCTRL    &kp LGUI     &kp LALT   &kp RALT      /**/ &kp LALT    &kp RALT &kp LGUI  &kp LCTRL &kp LSHFT &kp RET
+                    	             &kp ESC      &mo NAV    &lt NUM SPACE /**/ &lt SYM TAB &kp BSPC &kp RET
                         >;
                 };
         };
