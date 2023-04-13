@@ -37,7 +37,7 @@
 //                   | ESC | NAV | SPC |   | TAB | ENT | RET |
                         bindings = <
    &kp TAB   &kp Q       &kp W       &kp E      &kp R      &kp T         /**/ &kp Y        &kp U      &kp I      &kp O       &kp P          &kp BSPC
-   &kp ESC   &hm LSHFT A &hm LCTRL S &hm LGUI D &hm LALT F &hm RALT G    /**/ &hm LALT H   &hm RALT J &hm LGUI K &hm LCTRL L &hm LSHFT SEMI &kp SQT
+   &kp ESC   &kp A       &kp S       &kp D      &kp F      &kp G         /**/ &hm LALT H   &hm RALT J &hm LGUI K &hm LCTRL L &hm LSHFT SEMI &kp SQT
    &kp LSHFT &kp Z       &kp X       &kp C      &kp V      &kp B         /**/ &kp N        &kp M      &kp COMMA  &kp DOT     &kp FSLH       &kp RET
                                      &kp ESC    &mo NAV    &lt NUM SPACE /**/ &lt SYM TAB  &kp BSPC   &kp RET
                         >;
