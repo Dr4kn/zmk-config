@@ -17,6 +17,7 @@
 #define BT3 BT_SEL 2
 #define BT4 BT_SEL 3
 #define BT5 BT_SEL 4
+#define BTC BT_CLR
 
 / {
     // https://zmk.dev/docs/features/conditional-layers
@@ -69,10 +70,10 @@
 // | SHFT|  0  |  1  |  2  |  3  |  -  |   | BT1 |  F1 |  F2 |  F3 | F10 | BT4 |
 //                   | ESC | NAV | SPC |   | TAB | DEL | RET |
             bindings = <
-    &kp TAB   &kp FSLH &kp N7 &kp N8   &kp N9    &kp DOT    /**/ &bt BT_SEL 2 &kp F7 &kp F8  &kp F9 &kp F12 &bt BT_CLR
-    &kp ESC   &kp STAR &kp N4 &kp N5   &kp N6    &kp PLUS   /**/ &bt BT_SEL 1 &kp F4 &kp F5  &kp F6 &kp F11 &bt BT_SEL 4
-    &kp LSHFT &kp N0   &kp N1 &kp N2   &kp N3    &kp MINUS  /**/ &bt BT_SEL 0 &kp F1 &kp F2  &kp F3 &kp F10 &bt BT_SEL 3
-                              &trans   &trans    &trans     /**/ &trans       &trans &trans
+    &kp TAB   &kp FSLH &kp N7 &kp N8 &kp N9 &kp DOT   /**/ &bt BT3 &kp F7 &kp F8 &kp F9 &kp F12 &bt BTC
+    &kp ESC   &kp STAR &kp N4 &kp N5 &kp N6 &kp PLUS  /**/ &bt BT2 &kp F4 &kp F5 &kp F6 &kp F11 &bt BT5
+    &kp LSHFT &kp N0   &kp N1 &kp N2 &kp N3 &kp MINUS /**/ &bt BT1 &kp F1 &kp F2 &kp F3 &kp F10 &bt BT4
+                              &trans &trans &trans    /**/ &trans  &trans &trans
             >;
         };
 
