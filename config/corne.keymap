@@ -88,8 +88,19 @@ Shorterhandels for keyrow mods
             hold-trigger-key-positions = <LSIDE THUMBS>;
             hold-trigger-on-release; 
         };
-};
+        // tap -> sticky shift | shift + tap or double tap -> caps-word | hold -> shift
+        smart_shft: smart_shift {
+            label = "SMART_SHIFT"
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>
+            bindings = <&sk LSHFT>, <&caps_word>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        }
     };
+    &caps_word { // mods don't deactivate caps-word anymore
+        /delete-property/ ignore-modifiers;
+    }
+};
 
     keymap {
         compatible = "zmk,keymap";
