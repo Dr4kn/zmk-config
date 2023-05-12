@@ -93,11 +93,7 @@ Shorterhandels for keyrow mods
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings
-                = <LINUX_UNICODE_LEAD>
-                , <&macro_tap UNICODE_EURO>
-                , <LINUX_UNICODE_TRAIL>
-                ;
+            bindings = <LINUX_UNICODE_LEAD>, <&macro_tap UNICODE_EURO>, <LINUX_UNICODE_TRAIL>;
         };
     };
 
@@ -160,7 +156,7 @@ Shorterhandels for keyrow mods
     &kp TAB   &kp Q       &kp W       &kp E         &kp R        &kp T     /**/ &kp Y       &kp U        &kp I        &kp O       &kp P          &kp BSPC
     &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr RSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
     &kp LSHFT &kp Z       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RET
-                                      &mt LCTRL ESC &lt NUM TAB  &kp SPACE /**/ &smart_shft &lt SYM BSPC &lt NAV RET
+                                      &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt SYM BSPC &lt NAV RET
             >;
         };
 
