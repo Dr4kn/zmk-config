@@ -88,7 +88,6 @@ Shorterhandels for keyrow mods
                 #binding-cells = <0>; \
                 bindings = <uc_binding>, <shifted_uc_binding>; \
                 mods = <(MOD_LSFT|MOD_RSFT)>; \
-                masked-mods = <(MOD_LSFT|MOD_RSFT)>; \
             }; \
         }; \
     };
@@ -112,10 +111,10 @@ ZMK_UNICODE_PAIR(   wnc_ue, COMPOSE_UNICODE_LEAD, COMPOSE_UNICODE_TRAIL, N0, N0,
 ZMK_UNICODE_PAIR(   wnc_sz, COMPOSE_UNICODE_LEAD, COMPOSE_UNICODE_TRAIL, N0, N0,  D,  F,    N1, E,  N9,  E)
 
 // For Windows-Alt-Codes
-ZMK_UNICODE_PAIR(   wn_ae,      KP_N0, KP_N2, KP_N2, KP_N8,    KP_N0, KP_N1, KP_N9, KP_N6)
-ZMK_UNICODE_PAIR(   wn_oe,      KP_N0, KP_N2, KP_N4, KP_N6,    KP_N0, KP_N2, KP_N1, KP_N4)
-ZMK_UNICODE_PAIR(   wn_ue,      KP_N0, KP_N2, KP_N5, KP_N2,    KP_N0, KP_N2, KP_N2, KP_N0)
-ZMK_UNICODE_PAIR(   wn_sz,      KP_N0, KP_N2, KP_N2, KP_N3,    KP_N7, KP_N8, KP_N3, KP_N8)
+ZMK_UNICODE_PAIR(   wn_ae, ALT_CODE_LEAD, ALT_CODE_TRAIL, KP_N0, KP_N2, KP_N2, KP_N8,    KP_N0, KP_N1, KP_N9, KP_N6)
+ZMK_UNICODE_PAIR(   wn_oe, ALT_CODE_LEAD, ALT_CODE_TRAIL, KP_N0, KP_N2, KP_N4, KP_N6,    KP_N0, KP_N2, KP_N1, KP_N4)
+ZMK_UNICODE_PAIR(   wn_ue, ALT_CODE_LEAD, ALT_CODE_TRAIL, KP_N0, KP_N2, KP_N5, KP_N2,    KP_N0, KP_N2, KP_N2, KP_N0)
+ZMK_UNICODE_PAIR(   wn_sz, ALT_CODE_LEAD, ALT_CODE_TRAIL, KP_N0, KP_N2, KP_N2, KP_N3,    KP_N7, KP_N8, KP_N3, KP_N8)
 
 &sk {  // sticky-key config
     release-after-ms = <600>; // release after 0.6s
