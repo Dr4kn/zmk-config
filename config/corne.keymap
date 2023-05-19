@@ -110,6 +110,9 @@ Shorterhandels for keyrow mods
 
 #define UNICODE_EURO &kp N2 &kp N0 &kp A &kp C
 
+/* 
+    a lot of things are copied or heavily inspired by https://github.com/urob/zmk-config#timeless-homerow-mods
+*/
 #define ZMK_HELPER_STRINGIFY(x) #x
 
 #define UC_MACRO(name, unicode_lead, unicode_bindings, unicode_trail) \
@@ -236,9 +239,6 @@ UC_COMBO(wnc_sz, UC_S, UC_Z, WN_C)
     };
 
     behaviors { 
-        /* 
-            a lot of things are copied or heavily inspired by https://github.com/urob/zmk-config#timeless-homerow-mods
-        */
         // tap -> dollar | shift + tap -> euro
         dllr_euro: dllr_euro {
             compatible = "zmk,behavior-mod-morph";
@@ -289,6 +289,14 @@ UC_COMBO(wnc_sz, UC_S, UC_Z, WN_C)
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+        // tap or hold -> LALT | double tap -> Caps Lock
+        alt_caps: alt_caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ALT_CAPS";
+            #binding-cells = <0>;
+            tapping-term-ms = <50>;
+            bindings = <&kp LALT>, <&kp CAPS>;
+        };
     }; 
 
     keymap {
@@ -299,7 +307,7 @@ UC_COMBO(wnc_sz, UC_S, UC_Z, WN_C)
 // | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BKSP |
 // | ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
 // | SHFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RET  |
-//                   | ESC | NAV | SPC |   | TAB | ENT | RET |
+//                   | TAB | ESC | SPC |   | SHFT| BKSP| RET |
             bindings = <
     &kp TAB   &kp Q       &kp W       &kp E         &kp R        &kp T     /**/ &kp Y       &kp U        &kp I        &kp O       &kp P          &kp BSPC
     &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
@@ -330,15 +338,15 @@ UC_COMBO(wnc_sz, UC_S, UC_Z, WN_C)
 
         gaming_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  |DEF LY|
-// | TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
+// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  |DEF LY|
+// | LALT|  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
 // | LSFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RET  |
 //                   |     |     |     |   |     |     |     |
             bindings = <
-    &gqt CAPS ESC   &kp Q       &kp W       &kp E        &kp R     &kp T     /**/ &kp Y       &kp U        &kp I        &kp O       &kp P          &to DEF
-    &kp TAB         &kp A       &kp S       &kp D        &kp F     &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
-    &kp LSHFT       &kp Z       &kp X       &kp C        &kp V     &kp B     /**/ &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RET
-                                            &lt NUM LALT &kp SPACE &kp LCTRL /**/ &smart_shft &lt SYM BSPC &lt NAV RET
+    &kp TAB   &kp Q &kp W &kp E     &kp R  &kp T  /**/ &trans &trans &trans &trans &trans &trans
+    &alt_caps &kp A &kp S &kp D     &kp F  &kp G  /**/ &trans &trans &trans &trans &trans &trans
+    &kp LSHFT &kp Z &kp X &kp C     &kp V  &kp B  /**/ &trans &trans &trans &trans &trans &trans
+                          &kp LCTRL &trans &trans /**/ &trans &trans &trans
             >;
         };
 
@@ -377,9 +385,9 @@ UC_COMBO(wnc_sz, UC_S, UC_Z, WN_C)
 // |     |toDEF|toALT|toWNC|toGME|WRDRI|   |BRIDC|VOLDWN| VOLUP|BRIIC|     |     |
 //                   |     |     |     |   |     |      |      |
             bindings = <
-    &trans &kp C_PREV     &kp LC(RIGHT)   &kp C_PP         &kp C_NEXT     &trans       /**/ &trans        &kp LC(PG_UP)   &kp LC(PG_DN) &trans          &trans   &kp DEL
+    &trans &kp C_PREV     &kp LC(RIGHT)   &kp C_PP         &kp C_NEXT     &trans       /**/ &trans        &trans          &kp LC(PG_UP) &kp LC(PG_DN)   &trans   &kp DEL
     &trans &hml LGUI HOME &hml LALT PG_DN &hml LCTRL PG_UP &hml LSHFT END &trans       /**/ &kp LEFT      &hmr LSHFT DOWN &hmr LCTRL UP &hmr LALT RIGHT &kp LGUI &trans
-    &trans &to DEF          &to ALT_C     &to WN_C         &to GAME       &kp LC(LEFT) /**/ &kp C_BRI_DEC &kp C_VOL_DN    &kp C_VOL_UP  &kp C_BRI_INC   &trans   &trans
+    &trans &to DEF        &to ALT_C       &to WN_C         &to GAME       &kp LC(LEFT) /**/ &kp C_BRI_DEC &kp C_VOL_DN    &kp C_VOL_UP  &kp C_BRI_INC   &trans   &trans
                                           &trans           &trans         &trans       /**/ &trans        &trans          &trans
             >;
         };
