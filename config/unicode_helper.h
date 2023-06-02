@@ -4,6 +4,9 @@
 #pragma once
 #include "keys_helper.h"
 
+
+#define UNICODE_COMBO_TIMEOUT 150 // ca. 10500/(relaxed typing speed)
+
 // key presses to activate unicode entry on the operating systems
 #define LINUX_UNICODE_LEAD &macro_tap &kp LS(LC(U))
 #define LINUX_UNICODE_TRAIL &macro_tap &kp SPACE
@@ -55,7 +58,7 @@
         combos { \
             compatible = "zmk,combos"; \
             name { \
-                timeout-ms = <250>; \
+                timeout-ms = <UNICODE_COMBO_TIMEOUT>; \
                 key-positions = <key_position_one key_position_two>; \
                 bindings = <&name>; \
                 layers = <layer>; \
