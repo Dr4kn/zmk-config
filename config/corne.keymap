@@ -189,7 +189,7 @@
 
         gaming_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  |DEF LY|
+// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSPC |
 // | LALT|  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
 // | LSFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RET  |
 //                   |     |     |     |   |     |     |     |
@@ -217,14 +217,14 @@
 
         symbol_layer {
 // -----------------------------------------------------------------------------------------
-// |     |  !  |  @  |  #  |  $  |  %  |   |  &  |  *  |  +  |  =  |  -  |     |
+// |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  =  |  -  |     |
 // |     |  ~  |  [  |  {  |  (  |  /  |   |  \  |  )  |  }  |  ]  |  _  |     |
-// |     |     |  -  |  =  |  `  |     |   |  `  |  -  |  +  |  =  | "|" |     |
+// |     |     |  -  |  =  |  `  |  '  |   |  "  |  -  |  +  |  =  | "|" |     |
 //                   |     |     |     |   |     |     |     |
             bindings = <
-    &trans    &kp EXCL        &kp AT         &kp HASH        &dllr_euro      &kp PRCNT /**/ &kp AMPS  &kp STAR        &kp PLUS        &kp EQUAL      &kp MINUS       &trans
+    &trans    &kp EXCL        &kp AT         &kp HASH        &dllr_euro      &kp PRCNT /**/ &kp CARET &kp AMPS        &kp STAR        &kp EQUAL      &kp MINUS       &trans
     &trans    &hml LGUI TILDE &hml LALT LBKT &hml LCTRL LBRC &hml LSHFT LPAR &kp FSLH  /**/ &kp BSLH  &hmr LSHFT RPAR &hmr LCTRL RBRC &hmr LALT RBKT &hmr LGUI UNDER &trans
-    &trans    &trans          &kp MINUS      &kp EQUAL       &kp GRAVE       &trans    /**/ &kp GRAVE &kp MINUS       &kp PLUS        &kp EQUAL      &kp PIPE        &trans
+    &trans    &trans          &kp MINUS      &kp EQUAL       &kp GRAVE       &kp SQT   /**/ &kp DQT   &kp MINUS       &kp PLUS        &kp EQUAL      &kp PIPE        &trans
                                              &trans          &trans          &trans    /**/ &trans    &trans          &trans
             >;
         };
