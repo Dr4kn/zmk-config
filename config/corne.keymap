@@ -23,7 +23,7 @@
 #include "keys_helper.h"
 #include "unicode_helper.h"
 #include "combos_helper.h"
-#include "qwertz_helper.h"
+// #include "qwertz_helper.h"
 
 // ms timings for homerow mods for each side
 #define HOMEROW_TAPPING_TERM 280

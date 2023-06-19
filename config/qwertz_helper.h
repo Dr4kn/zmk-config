@@ -2,7 +2,6 @@
     a lot of things are copied or heavily inspired by https://github.com/urob/zmk-config#timeless-homerow-mods
 */
 #pragma once
-#include "keys_helper.h"
 
 #define QWERTZ_HELPER_STRINGIFY(x) #x
 
