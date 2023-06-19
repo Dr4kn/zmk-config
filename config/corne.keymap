@@ -23,6 +23,7 @@
 #include "keys_helper.h"
 #include "unicode_helper.h"
 #include "combos_helper.h"
+#include "qwertz_helper.h"
 
 // ms timings for homerow mods for each side
 #define HOMEROW_TAPPING_TERM 280
@@ -167,46 +168,6 @@
             >;
         };
 
-/*
-KEYCODES
-
-
-NORMAL KEYS
-
-QWRTZ_COMMA
-QWRTZ_DOT
-QWRTZ_FLSH
-
-
-SYMBOLS ON NUMBER ROW
-
-QWRTZ_AT
-QWRTZ_HASH
-QWRTZ_CARET
-QWRTZ_AMPS
-QWRTZ_STAR
-QWRTZ_EQUAL
-QWRTZ_MINUS
-QWRTZ_PLUS
-
-
-BRACKETS
-
-QWRTZ_LBKT
-QWRTZ_RBKT
-QWRTZ_LBRC
-QWRTZ_RBRC
-QWRTZ_LPAR
-QWRTZ_RPAR
-QWRTZ_LBKT
-QWRTZ_BSLH
-QWRTZ_TILDE
-QWRTZ_UNDER
-QWRTZ_SQT
-QWRTZ_DQT
-QWRTZ_GRAVE
-QWRTZ_PIPE
-*/
 // convinient lookup table: https://gist.github.com/eckig/406619a5de8a575768632a88d18c2a73
         qwertz_layer {
 // -----------------------------------------------------------------------------------------
@@ -216,8 +177,8 @@ QWRTZ_PIPE
 //                   | TAB | ESC | SPC |   | SHFT| BKSP| RET |
             bindings = <
     &kp TAB   &kp Q       &kp W       &kp E         &kp R        &kp T     /**/ &kp Z       &kp U        &kp I        &kp O       &kp P          &kp BSPC
-    &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
-    &kp LSHFT &kp Y       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RET
+    &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &QWRTZ_SQT
+    &kp LSHFT &kp Y       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &QWRTZ_COMMA &QWRTZ_DOT  &QWRTZ_FSLH    &kp RET
                                       &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt SYM BSPC &lt NAV RET
             >;
         };
@@ -270,6 +231,20 @@ QWRTZ_PIPE
                                        &trans        &trans        &trans    /**/ &trans  &lt SYM DEL   &trans
             >;
         };
+
+//         qwertz_symbol_layer {
+// // -----------------------------------------------------------------------------------------
+// // |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  =  |  -  |     |
+// // |     |  ~  |  [  |  {  |  (  |  /  |   |  \  |  )  |  }  |  ]  |  _  |     |
+// // |     |     |  -  |  =  |  `  |  '  |   |  "  |  -  |  +  |  =  | "|" |     |
+// //                   |     |     |     |   |     |     |     |
+//             bindings = <
+//     &trans    &kp EXCL        QWRTZ_AT             QWRTZ_HASH            &dllr_euro            &kp PRCNT      /**/ QWRTZ_CARET    QWRTZ_AMPS            QWRTZ_STAR            QWRTZ_EQUAL          QWRTZ_MINUS           &trans
+//     &trans    &hml LGUI TILDE &hml LALT QWRTZ_LBKT &hml LCTRL QWRTZ_LBRC &hml LSHFT QWRTZ_LPAR &kp QWRTZ_FSLH /**/ &kp QWRTZ_BSLH &hmr LSHFT QWRTZ_RPAR &hmr LCTRL QWRTZ_RBRC &hmr LALT QWRTZ_RBKT &hmr LGUI QWRTZ_UNDER &trans
+//     &trans    &trans          QWRTZ_MINUS          QWRTZ_EQUAL           QWRTZ_GRAVE           QWRTZ_SQT      /**/ QWRTZ_DQT      QWRTZ_MINUS           QWRTZ_PLUS            QWRTZ_EQUAL          QWRTZ_PIPE            &trans
+//                                                    &trans                &trans                &trans         /**/ &trans         &trans                &trans
+//             >;
+//         };
 
         symbol_layer {
 // -----------------------------------------------------------------------------------------
