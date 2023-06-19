@@ -162,11 +162,51 @@
             bindings = <
     &kp TAB   &kp Q       &kp W       &kp E         &kp R        &kp T     /**/ &kp Y       &kp U        &kp I        &kp O       &kp P          &kp BSPC
     &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
-    &kp LSHFT &kp Z       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RET
+    &kp LSHFT &kp Z       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &QWRTZ_COMMA &QWRTZ_DOT  &QWRTZ_FSLH       &kp RET
                                       &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt SYM BSPC &lt NAV RET
             >;
         };
 
+/*
+KEYCODES
+
+
+NORMAL KEYS
+
+QWRTZ_COMMA
+QWRTZ_DOT
+QWRTZ_FLSH
+
+
+SYMBOLS ON NUMBER ROW
+
+QWRTZ_AT
+QWRTZ_HASH
+QWRTZ_CARET
+QWRTZ_AMPS
+QWRTZ_STAR
+QWRTZ_EQUAL
+QWRTZ_MINUS
+QWRTZ_PLUS
+
+
+BRACKETS
+
+QWRTZ_LBKT
+QWRTZ_RBKT
+QWRTZ_LBRC
+QWRTZ_RBRC
+QWRTZ_LPAR
+QWRTZ_RPAR
+QWRTZ_LBKT
+QWRTZ_BSLH
+QWRTZ_TILDE
+QWRTZ_UNDER
+QWRTZ_SQT
+QWRTZ_DQT
+QWRTZ_GRAVE
+QWRTZ_PIPE
+*/
 // convinient lookup table: https://gist.github.com/eckig/406619a5de8a575768632a88d18c2a73
         qwertz_layer {
 // -----------------------------------------------------------------------------------------

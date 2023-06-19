@@ -6,24 +6,6 @@
 
 #define ZMK_HELPER_STRINGIFY(x) #x
 
-#define UC_MACRO(name, unicode_lead, unicode_bindings, unicode_trail) \
-    / { \
-        macros { \
-            name: name { \
-                compatible = "zmk,behavior-macro"; \
-                label = ZMK_HELPER_STRINGIFY(UC_MACRO_ ## name); \
-                wait-ms = <0>; \
-                tap-ms = <0>; \
-                #binding-cells = <0>; \
-                bindings  \
-                    = <unicode_lead> \
-                    , <&macro_tap unicode_bindings> \
-                    , <unicode_trail> \
-                    ; \
-            }; \
-        }; \
-    };
-
 #define UC_MODMORPH(name, uc_binding, shifted_uc_binding) \
     / { \
         behaviors { \
@@ -31,48 +13,130 @@
                 compatible = "zmk,behavior-mod-morph"; \
                 label = ZMK_HELPER_STRINGIFY(UC_MORPH_ ## name); \
                 #binding-cells = <0>; \
-                bindings = <uc_binding>, <shifted_uc_binding>; \
+                bindings = <&kp uc_binding>, <&kp shifted_uc_binding>; \
                 mods = <(MOD_LSFT|MOD_RSFT)>; \
             }; \
         }; \
     };
 
+/*
+KEYCODES
 
-#define UC_COMBO(name, key_position_one, key_position_two, layer) \
-    / { \
-        combos { \
-            compatible = "zmk,combos"; \
-            name { \
-                timeout-ms = <UNICODE_COMBO_TIMEOUT>; \
-                key-positions = <key_position_one key_position_two>; \
-                bindings = <&name>; \
-                layers = <layer>; \
-            }; \
-        }; \
-    };
 
-#define ZMK_UNICODE_PAIR(name, unicode_lead, unicode_trail, L0, L1, L2, L3, U0, U1, U2, U3) \
-    UC_MACRO(name ## _lower, unicode_lead, &kp L0 &kp L1 &kp L2 &kp L3, unicode_trail) \
-    UC_MACRO(name ## _upper, unicode_lead, &kp U0 &kp U1 &kp U2 &kp U3, unicode_trail) \
-    UC_MODMORPH(name, &name ## _lower, &name ## _upper)
+NORMAL KEYS
 
-// German umlauts in Unicode for Windows Compose
-ZMK_UNICODE_PAIR(   wnc_ae, COMPOSE_UNICODE_LEAD, COMPOSE_UNICODE_TRAIL, N0, N0,  E, N4,    N0, N0,  C, N4)
-ZMK_UNICODE_PAIR(   wnc_oe, COMPOSE_UNICODE_LEAD, COMPOSE_UNICODE_TRAIL, N0, N0,  F, N6,    N0, N0,  D, N6)
-ZMK_UNICODE_PAIR(   wnc_ue, COMPOSE_UNICODE_LEAD, COMPOSE_UNICODE_TRAIL, N0, N0,  F,  C,    N0, N0,  D,  C)
-ZMK_UNICODE_PAIR(   wnc_sz, COMPOSE_UNICODE_LEAD, COMPOSE_UNICODE_TRAIL, N0, N0,  D,  F,    N1, E,  N9,  E)
+QWRTZ_SEMI
+QWRTZ_SQT
+QWRTZ_COMMA
+QWRTZ_DOT
+QWRTZ_FLSH
 
-UC_COMBO(ln_ae, UC_A, UC_E, SYM)
-UC_COMBO(ln_oe, UC_O, UC_E, SYM)
-UC_COMBO(ln_ue, UC_U, UC_E, SYM)
-UC_COMBO(ln_sz, UC_S, UC_Z, SYM)
 
-UC_COMBO(wna_ae, UC_A, UC_E, ALT_C)
-UC_COMBO(wna_oe, UC_O, UC_E, ALT_C)
-UC_COMBO(wna_ue, UC_U, UC_E, ALT_C)
-UC_COMBO(wna_sz, UC_S, UC_Z, ALT_C)
+SYMBOLS ON NUMBER ROW
 
-UC_COMBO(wnc_ae, UC_A, UC_E, WN_C)
-UC_COMBO(wnc_oe, UC_O, UC_E, WN_C)
-UC_COMBO(wnc_ue, UC_U, UC_E, WN_C)
-UC_COMBO(wnc_sz, UC_S, UC_Z, WN_C)
+QWRTZ_AT
+QWRTZ_HASH
+QWRTZ_CARET
+QWRTZ_AMPS
+QWRTZ_STAR
+QWRTZ_EQUAL
+QWRTZ_MINUS
+QWRTZ_PLUS
+
+
+BRACKETS
+
+QWRTZ_LBKT
+QWRTZ_RBKT
+QWRTZ_LBRC
+QWRTZ_RBRC
+QWRTZ_LPAR
+QWRTZ_RPAR
+QWRTZ_LBKT
+QWRTZ_BSLH
+QWRTZ_TILDE
+QWRTZ_UNDER
+QWRTZ_SQT
+QWRTZ_DQT
+QWRTZ_GRAVE
+QWRTZ_PIPE
+*/
+
+
+
+/*
+    NORMAL KEYS
+*/
+// ; and :
+UC_MODMORPH(QWRTZ_SEMI, LS(COMMA), LS(DOT))
+// ' and "
+UC_MODMORPH(QWRTZ_SQT, LS(BSLH), LS(N2))
+// , and <
+UC_MODMORPH(QWRTZ_COMMA, COMMA, NON_US_BACKSLASH)
+// . and >
+UC_MODMORPH(QWRTZ_DOT, DOT, LS(NON_US_BACKSLASH))
+// / and ?
+UC_MODMORPH(QWRTZ_FLSH, LS(7), LS(MINUS))
+/*
+    SYMBOLS ON NUMBER ROW
+*/
+// ! is the same
+// @
+#define QWRTZ_AT &kp RA(Q)
+// #
+#define QWRTZ_HASH &kp NON_US_HASH
+// $ is the same
+// % is the same
+// ^ is the same
+// ^
+#define QWRTZ_CARET &kp GRAVE
+// &
+#define QWRTZ_AMPS &kp CARET
+// *
+#define QWRTZ_STAR &kp LS(RBKT)
+// =
+#define QWRTZ_EQUAL &kp LS(N0)
+// -
+#define QWRTZ_MINUS &kp FSLH
+// +
+#define QWRTZ_PLUS &kp RBKT
+
+/*
+    BRACKETS
+*/
+// [
+#define QWRTZ_LBKT &kp RA(N8)
+// ]
+#define QWRTZ_RBKT &kp RA(N9)
+// {
+#define QWRTZ_LBRC &kp RA(N7)
+// }
+#define QWRTZ_RBRC &kp RA(N0)
+// (
+#define QWRTZ_LPAR &kp LS(N8)
+// )
+#define QWRTZ_RPAR &kp LS(N9)
+// /
+#define QWRTZ_LBKT &kp RBKT
+// "\"
+#define QWRTZ_BSLH &kp RA(MINUS)
+
+
+/*
+    OTHER SYMBOLS
+*/
+// ~
+#define QWRTZ_TILDE &kp LS(NON_US_HASH)
+// _
+#define QWRTZ_UNDER &kp LS(MINUS)
+// '
+#define QWRTZ_SQT &kp LS(BSLH)
+// "
+#define QWRTZ_DQT &kp LS(N2)
+// `
+#define QWRTZ_GRAVE &kp LS(EQUAL)
+// |
+#define QWRTZ_PIPE &kp RA(NON_US_BACKSLASH)
+
+
+
