@@ -4,14 +4,14 @@
 #pragma once
 #include "keys_helper.h"
 
-#define ZMK_HELPER_STRINGIFY(x) #x
+#define QWERTZ_HELPER_STRINGIFY(x) #x
 
-#define UC_MODMORPH(name, uc_binding, shifted_uc_binding) \
+#define QWERTZ_MODMORPH(name, uc_binding, shifted_uc_binding) \
     / { \
         behaviors { \
             name: name { \
                 compatible = "zmk,behavior-mod-morph"; \
-                label = ZMK_HELPER_STRINGIFY(UC_MORPH_ ## name); \
+                label = QWERTZ_HELPER_STRINGIFY(UC_MORPH_ ## name); \
                 #binding-cells = <0>; \
                 bindings = <&kp uc_binding>, <&kp shifted_uc_binding>; \
                 mods = <(MOD_LSFT|MOD_RSFT)>; \
@@ -52,7 +52,7 @@ QWRTZ_LBRC
 QWRTZ_RBRC
 QWRTZ_LPAR
 QWRTZ_RPAR
-QWRTZ_LBKT
+QWRTZ_FSLH
 QWRTZ_BSLH
 QWRTZ_TILDE
 QWRTZ_UNDER
@@ -68,15 +68,15 @@ QWRTZ_PIPE
     NORMAL KEYS
 */
 // ; and :
-UC_MODMORPH(QWRTZ_SEMI, LS(COMMA), LS(DOT))
+QWERTZ_MODMORPH(QWRTZ_SEMI, LS(COMMA), LS(DOT))
 // ' and "
-UC_MODMORPH(QWRTZ_SQT, LS(BSLH), LS(N2))
+QWERTZ_MODMORPH(QWRTZ_SQT, LS(BSLH), LS(N2))
 // , and <
-UC_MODMORPH(QWRTZ_COMMA, COMMA, NON_US_BACKSLASH)
+QWERTZ_MODMORPH(QWRTZ_COMMA, COMMA, NON_US_BACKSLASH)
 // . and >
-UC_MODMORPH(QWRTZ_DOT, DOT, LS(NON_US_BACKSLASH))
+QWERTZ_MODMORPH(QWRTZ_DOT, DOT, LS(NON_US_BACKSLASH))
 // / and ?
-UC_MODMORPH(QWRTZ_FLSH, LS(7), LS(MINUS))
+QWERTZ_MODMORPH(QWRTZ_FLSH, LS(7), LS(MINUS))
 /*
     SYMBOLS ON NUMBER ROW
 */
@@ -117,7 +117,7 @@ UC_MODMORPH(QWRTZ_FLSH, LS(7), LS(MINUS))
 // )
 #define QWRTZ_RPAR &kp LS(N9)
 // /
-#define QWRTZ_LBKT &kp RBKT
+#define QWRTZ_FSLH &kp RBKT
 // "\"
 #define QWRTZ_BSLH &kp RA(MINUS)
 
