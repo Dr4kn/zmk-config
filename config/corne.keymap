@@ -16,8 +16,8 @@
 #define WN_C 2
 #define GAME 3
 #define NUM 4
-#define SYM 5
-#define NAV 6
+#define NAV 5
+#define SYM 6
 
 // my own headers
 #include "keys_helper.h"
@@ -53,8 +53,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <NUM SYM>;
-            then-layer = <NAV>;
+            if-layers = <NUM NAV>;
+            then-layer = <SYM>;
         };
     };
     
@@ -164,7 +164,7 @@
     &kp TAB   &kp Q       &kp W       &kp E         &kp R        &kp T     /**/ &kp Y       &kp U        &kp I        &kp O       &kp P          &kp BSPC
     &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
     &kp LSHFT &kp Z       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RET
-                                      &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt SYM BSPC &lt NAV RET
+                                      &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt NAV BSPC &lt SYM RET
             >;
         };
 
@@ -223,7 +223,7 @@
     &trans &kp FSLH       &kp N7       &kp N8        &kp N9        &kp DOT   /**/ &bt BT3 &kp F7        &kp F8        &kp F9       &kp F12       &bt BTC
     &trans &hml LGUI STAR &hml LALT N4 &hml LCTRL N5 &hml LSHFT N6 &kp PLUS  /**/ &bt BT2 &hmr LSHFT F4 &hmr LCTRL F5 &hmr LALT F6 &hmr LGUI F11 &bt BT5
     &trans &kp N0         &kp N1       &kp N2        &kp N3        &kp MINUS /**/ &bt BT1 &kp F1        &kp F2        &kp F3       &kp F10       &bt BT4
-                                       &trans        &trans        &trans    /**/ &trans  &lt SYM DEL   &trans
+                                       &trans        &trans        &trans    /**/ &trans  &lt NAV DEL   &trans
             >;
         };
 
@@ -241,20 +241,6 @@
 //             >;
 //         };
 
-        symbol_layer {
-// -----------------------------------------------------------------------------------------
-// |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  =  |  -  |     |
-// |     |  ~  |  [  |  {  |  (  |  /  |   |  \  |  )  |  }  |  ]  |  _  |     |
-// |     |     |  -  |  =  |  `  |  '  |   |  "  |  -  |  +  |  =  | "|" |     |
-//                   |     |     |     |   |     |     |     |
-            bindings = <
-    &trans    &kp EXCL        &kp AT         &kp HASH        &dllr_euro      &kp PRCNT /**/ &kp CARET &kp AMPS        &kp STAR        &kp EQUAL      &kp MINUS       &trans
-    &trans    &hml LGUI TILDE &hml LALT LBKT &hml LCTRL LBRC &hml LSHFT LPAR &kp FSLH  /**/ &kp BSLH  &hmr LSHFT RPAR &hmr LCTRL RBRC &hmr LALT RBKT &hmr LGUI UNDER &trans
-    &trans    &trans          &kp MINUS      &kp EQUAL       &kp GRAVE       &kp SQT   /**/ &kp DQT   &kp MINUS       &kp PLUS        &kp EQUAL      &kp PIPE        &trans
-                                             &trans          &trans          &trans    /**/ &trans    &trans          &trans
-            >;
-        };
-
         navigation_layer {
 // -----------------------------------------------------------------------------------------
 // |     |  <- |WRDLE| PLAY|  -> |     |   |     |PRETAB|NXTTAB|     |     | DEL |
@@ -266,6 +252,20 @@
     &trans &hml LGUI HOME &hml LALT PG_DN &hml LCTRL PG_UP &hml LSHFT END &trans       /**/ &kp LEFT      &hmr LSHFT DOWN &hmr LCTRL UP &hmr LALT RIGHT &kp LGUI &trans
     &trans &to DEF        &to ALT_C       &to WN_C         &to GAME       &kp LC(LEFT) /**/ &kp C_BRI_DEC &kp C_VOL_DN    &kp C_VOL_UP  &kp C_BRI_INC   &trans   &trans
                                           &trans           &trans         &trans       /**/ &trans        &trans          &trans
+            >;
+        };
+
+        symbol_layer {
+// -----------------------------------------------------------------------------------------
+// |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  =  |  -  |     |
+// |     |  ~  |  [  |  {  |  (  |  /  |   |  \  |  )  |  }  |  ]  |  _  |     |
+// |     |     |  -  |  =  |  `  |  '  |   |  "  |  -  |  +  |  =  | "|" |     |
+//                   |     |     |     |   |     |     |     |
+            bindings = <
+    &trans    &kp EXCL        &kp AT         &kp HASH        &dllr_euro      &kp PRCNT /**/ &kp CARET &kp AMPS        &kp STAR        &kp EQUAL      &kp MINUS       &trans
+    &trans    &hml LGUI TILDE &hml LALT LBKT &hml LCTRL LBRC &hml LSHFT LPAR &kp FSLH  /**/ &kp BSLH  &hmr LSHFT RPAR &hmr LCTRL RBRC &hmr LALT RBKT &hmr LGUI UNDER &trans
+    &trans    &trans          &kp MINUS      &kp EQUAL       &kp GRAVE       &kp SQT   /**/ &kp DQT   &kp MINUS       &kp PLUS        &kp EQUAL      &kp PIPE        &trans
+                                             &trans          &trans          &trans    /**/ &trans    &trans          &trans
             >;
         };
     };
