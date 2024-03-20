@@ -132,15 +132,6 @@
             bindings = <&kp PLUS>, <&kp EQUAL>; // defined in unicode helper
         };
     };
-    combos {
-        compatible = "zmk,combos";
-        combo_plus_equals {
-            timeout-ms = <HOMEROW_QUICK_TAP>;
-            key-positions = <32 33>;
-            bindings = <&plus_equals>;
-            layers = <SYM>;
-        };
-    };
 // check out urobs zmk-nodefree-config
 
     keymap {
