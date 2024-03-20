@@ -25,20 +25,3 @@ Shorterhandels for keyrow mods
             }; \
         }; \
     };
-
-// doesn't work at the moment
-// combos on the typing layers for symbols
-// SYMBOL_COMBO(lpar,     LPAR,   COMBO_FAST,     15 16,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(rpar,     RPAR,   COMBO_FAST,     20 19,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(lbrc,     LBRC,   COMBO_FAST,     14 15,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(rbrc,     RBRC,   COMBO_FAST,     21 20,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(lbkt,     LBKT,   COMBO_FAST,     14 15 16,   DEF ALT_C WN_C)
-// SYMBOL_COMBO(rbkt,     RBKT,   COMBO_FAST,     21 20 19,   DEF ALT_C WN_C)
-// SYMBOL_COMBO(tilde,    TILDE,  COMBO_FAST,     13 14,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(under,    UNDER,  COMBO_FAST,     22 21,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(plus,     PLUS,   COMBO_FAST,     25 26,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(minus,    MINUS,  COMBO_FAST,     26 27,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(equal,    EQUAL,  COMBO_FAST,     27 28,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(sqt,      SQT,    COMBO_FAST,     32 31,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(grave,    GRAVE,  COMBO_FAST,     33 32,      DEF ALT_C WN_C)
-// SYMBOL_COMBO(blsh,     BSLH,   COMBO_FAST,     34 33,      DEF ALT_C WN_C)
