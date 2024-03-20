@@ -227,20 +227,6 @@
             >;
         };
 
-//         qwertz_symbol_layer {
-// // -----------------------------------------------------------------------------------------
-// // |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  =  |  -  |     |
-// // |     |  ~  |  [  |  {  |  (  |  /  |   |  \  |  )  |  }  |  ]  |  _  |     |
-// // |     |     |  -  |  =  |  `  |  '  |   |  "  |  -  |  +  |  =  | "|" |     |
-// //                   |     |     |     |   |     |     |     |
-//             bindings = <
-//     &trans    &kp EXCL        QWRTZ_AT             QWRTZ_HASH            &dllr_euro            &kp PRCNT      /**/ QWRTZ_CARET    QWRTZ_AMPS            QWRTZ_STAR            QWRTZ_EQUAL          QWRTZ_MINUS           &trans
-//     &trans    &hml LGUI TILDE &hml LALT QWRTZ_LBKT &hml LCTRL QWRTZ_LBRC &hml LSHFT QWRTZ_LPAR &kp QWRTZ_FSLH /**/ &kp QWRTZ_BSLH &hmr LSHFT QWRTZ_RPAR &hmr LCTRL QWRTZ_RBRC &hmr LALT QWRTZ_RBKT &hmr LGUI QWRTZ_UNDER &trans
-//     &trans    &trans          QWRTZ_MINUS          QWRTZ_EQUAL           QWRTZ_GRAVE           QWRTZ_SQT      /**/ QWRTZ_DQT      QWRTZ_MINUS           QWRTZ_PLUS            QWRTZ_EQUAL          QWRTZ_PIPE            &trans
-//                                                    &trans                &trans                &trans         /**/ &trans         &trans                &trans
-//             >;
-//         };
-
         navigation_layer {
 // -----------------------------------------------------------------------------------------
 // |     |  <- |WRDLE| PLAY|  -> |     |   |     |PRETAB|NXTTAB|     |     | DEL |
