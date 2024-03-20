@@ -182,7 +182,6 @@
                                              &trans          &trans          &trans    /**/ &trans    &trans          &trans
             >;
         };
-    };
 
 // the only thing that changes in those is what the umlaut combo does in the background
         unicode_alt_layer {
@@ -216,4 +215,5 @@
                           &kp LCTRL &trans &trans /**/ &trans &trans &trans
             >;
         };
+    };
 };
