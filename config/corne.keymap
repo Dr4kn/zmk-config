@@ -117,7 +117,7 @@
         alt_caps: alt_caps {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <50>;
+            tapping-term-ms = <200>;
             bindings = <&kp LALT>, <&kp CAPS>;
         };
     };
