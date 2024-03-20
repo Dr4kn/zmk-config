@@ -11,13 +11,12 @@
 
 // placeholder names to make layers more readable
 #define DEF 0
-// #define QRZ 1
-#define ALT_C 1
-#define WN_C 2
-#define GAME 3
-#define NUM 4
-#define NAV 5
-#define SYM 6
+#define NUM 1
+#define NAV 2
+#define SYM 3
+#define ALT_C 4
+#define WN_C 5
+#define GAME 6
 
 // my own headers
 #include "keys_helper.h"
@@ -150,6 +149,7 @@
             layers = <SYM>;
         };
     };
+// check out urobs zmk-nodefree-config
 
     keymap {
         compatible = "zmk,keymap";
@@ -165,51 +165,6 @@
     &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &kp SQT
     &kp LSHFT &kp Z       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RET
                                       &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt NAV BSPC &lt SYM RET
-            >;
-        };
-
-// convinient lookup table: https://gist.github.com/eckig/406619a5de8a575768632a88d18c2a73
-    //     qwertz_layer {
-    //         bindings = <
-    // &kp TAB   &kp Q       &kp W       &kp E         &kp R        &kp T     /**/ &kp Z       &kp U        &kp I        &kp O       &kp P          &kp BSPC
-    // &kp ESC   &hml LGUI A &hml LALT S &hml LCTRL D  &hml LSHFT F &kp G     /**/ &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L &hmr LGUI SEMI &QWRTZ_SQT
-    // &kp LSHFT &kp Y       &kp X       &kp C         &kp V        &kp B     /**/ &kp N       &kp M        &QWRTZ_COMMA &QWRTZ_DOT  &QWRTZ_FSLH    &kp RET
-    //                                   &mt LCTRL TAB &lt NUM ESC  &kp SPACE /**/ &smart_shft &lt SYM BSPC &lt NAV RET
-    //         >;
-    //     };
-
-// check out urobs zmk-nodefree-config
-
-// the only thing that changes in those is what the umlaut combo does in the background
-        unicode_alt_layer {
-            bindings = <
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-                         &trans &trans &trans /**/ &trans &trans &trans
-            >;
-        };
-
-        windows_compose_layer {
-            bindings = <
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-                         &trans &trans &trans /**/ &trans &trans &trans
-            >;
-        };
-
-        gaming_layer {
-// -----------------------------------------------------------------------------------------
-// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSPC |
-// | LALT|  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
-// | LSFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RET  |
-//                   |     |     |     |   |     |     |     |
-            bindings = <
-    &kp TAB   &kp Q &kp W &kp E     &kp R  &kp T  /**/ &trans &trans &trans &trans &trans &trans
-    &alt_caps &kp A &kp S &kp D     &kp F  &kp G  /**/ &trans &trans &trans &trans &trans &trans
-    &kp LSHFT &kp Z &kp X &kp C     &kp V  &kp B  /**/ &trans &trans &trans &trans &trans &trans
-                          &kp LCTRL &trans &trans /**/ &trans &trans &trans
             >;
         };
 
@@ -255,4 +210,37 @@
             >;
         };
     };
+
+// the only thing that changes in those is what the umlaut combo does in the background
+        unicode_alt_layer {
+            bindings = <
+    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
+                         &trans &trans &trans /**/ &trans &trans &trans
+            >;
+        };
+
+        windows_compose_layer {
+            bindings = <
+    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
+                         &trans &trans &trans /**/ &trans &trans &trans
+            >;
+        };
+
+        gaming_layer {
+// -----------------------------------------------------------------------------------------
+// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSPC |
+// | LALT|  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  ;  |  '   |
+// | LSFT|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | RET  |
+//                   |     |     |     |   |     |     |     |
+            bindings = <
+    &kp TAB   &kp Q &kp W &kp E     &kp R  &kp T  /**/ &trans &trans &trans &trans &trans &trans
+    &alt_caps &kp A &kp S &kp D     &kp F  &kp G  /**/ &trans &trans &trans &trans &trans &trans
+    &kp LSHFT &kp Z &kp X &kp C     &kp V  &kp B  /**/ &trans &trans &trans &trans &trans &trans
+                          &kp LCTRL &trans &trans /**/ &trans &trans &trans
+            >;
+        };
 };
