@@ -60,7 +60,6 @@
     macros {
         dollar_euro: dollar_euro_macro {
             compatible = "zmk,behavior-macro";
-            label = "dollar_euro_macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
@@ -72,14 +71,12 @@
         // tap -> dollar | shift + tap -> euro
         dllr_euro: dllr_euro {
             compatible = "zmk,behavior-mod-morph";
-            label = "dollar_euro_mod_morph";
             #binding-cells = <0>;
             bindings = <&kp DLLR>, <&dollar_euro>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         hml: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
             tapping-term-ms = <HOMEROW_TAPPING_TERM>;
             quick-tap-ms = <HOMEROW_QUICK_TAP>;
@@ -91,7 +88,6 @@
         };
         hmr: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT";
             #binding-cells = <2>;
             tapping-term-ms = <HOMEROW_TAPPING_TERM>;
             quick-tap-ms = <HOMEROW_QUICK_TAP>;
@@ -104,14 +100,12 @@
         // tap -> sticky shift | shift + tap or double tap -> caps-word | hold -> shift
         smart_shft: smart_shft {
             compatible = "zmk,behavior-mod-morph";
-            label = "SMART_SHIFT";
             #binding-cells = <0>;
             bindings = <&sk LSHFT>, <&caps_word>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         gqt: global-quick-tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "GLOBAL_QUICK_TAP";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
@@ -122,7 +116,6 @@
         // tap or hold -> LALT | double tap -> Caps Lock
         alt_caps: alt_caps {
             compatible = "zmk,behavior-tap-dance";
-            label = "ALT_CAPS";
             #binding-cells = <0>;
             tapping-term-ms = <50>;
             bindings = <&kp LALT>, <&kp CAPS>;
@@ -133,7 +126,6 @@
     macros {
         plus_equals: plus_equals_macro {
             compatible = "zmk,behavior-macro";
-            label = "plus_equals_macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
