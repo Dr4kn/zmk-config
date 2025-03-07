@@ -16,14 +16,11 @@
 
 // placeholder names to make layers more readable
 #define DEF 0
-// #define QRZ 1
-#define ALT_C 1
-#define WN_C 2
-#define GAME 3
-#define NUM 4
-#define NAV 5
-#define SYM 6
-#define MOUSE 7
+#define GAME 1
+#define NUM 2
+#define NAV 3
+#define SYM 4
+#define MOUSE 5
 
 // my own headers
 #include "keys_helper.h"
@@ -151,25 +148,6 @@
             >;
         };
 
-// the only thing that changes in those is what the umlaut combo does in the background
-        unicode_alt_layer {
-            bindings = <
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-                         &trans &trans &trans /**/ &trans &trans &trans
-            >;
-        };
-
-        windows_compose_layer {
-            bindings = <
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans /**/ &trans &trans &trans &trans &trans &trans
-                         &trans &trans &trans /**/ &trans &trans &trans
-            >;
-        };
-
         gaming_layer {
 // -----------------------------------------------------------------------------------------
 // | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSPC |
@@ -207,7 +185,7 @@
             bindings = <
     &trans &kp C_PREV     &kp LC(RIGHT)   &kp C_PP         &kp C_NEXT     &trans       /**/ &trans        &trans          &kp LC(PG_UP) &kp LC(PG_DN)   &trans   &kp DEL
     &trans &hml LGUI HOME &hml LALT PG_DN &hml LCTRL PG_UP &hml LSHFT END &trans       /**/ &kp LEFT      &hmr LSHFT DOWN &hmr LCTRL UP &hmr LALT RIGHT &kp LGUI &trans
-    &trans &to DEF        &to ALT_C       &to WN_C         &to GAME       &kp LC(LEFT) /**/ &kp C_BRI_DEC &kp C_VOL_DN    &kp C_VOL_UP  &kp C_BRI_INC   &trans   &trans
+    &trans &to DEF        &to GAME        &trans           &trans       &kp LC(LEFT) /**/ &kp C_BRI_DEC &kp C_VOL_DN    &kp C_VOL_UP  &kp C_BRI_INC   &trans   &trans
                                           &trans           &trans         &trans       /**/ &trans        &trans          &trans
             >;
         };
