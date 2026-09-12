@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define UNICODE_COMBO_TIMEOUT 150 // ca. 10500/(relaxed typing speed)
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 50    // default: 10
 
 #include <dt-bindings/zmk/pointing.h>
@@ -24,8 +25,8 @@
 
 // my own headers
 #include "keys_helper.h"
-#include "unicode_helper.h"
-#include "combos_helper.h"
+// #include "unicode_helper.h"
+// #include "combos_helper.h"
 // #include "qwertz_helper.h"
 
 // ms timings for homerow mods for each side
@@ -74,23 +75,44 @@
             then-layer = <SYM>;
         };
     };
-    
-    macros {
-        dollar_euro: dollar_euro_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <LINUX_UNICODE_LEAD>, <&macro_tap UNICODE_EURO>, <LINUX_UNICODE_TRAIL>; // defined in unicode helper
+
+    combos {
+        compatible = "zmk,combos";
+        combo_ae {
+            timeout-ms = <UNICODE_COMBO_TIMEOUT>;
+            key-positions = <UC_A UC_E>;
+            bindings = <&kp RA(Q)>;
+            layers = <SYM>;
+        };
+        
+        combo_oe {
+            timeout-ms = <UNICODE_COMBO_TIMEOUT>;
+            key-positions = <UC_O UC_E>;
+            bindings = <&kp RA(P)>;
+            layers = <SYM>;
+        };
+        
+        combo_ue {
+            timeout-ms = <UNICODE_COMBO_TIMEOUT>;
+            key-positions = <UC_U UC_E>;
+            bindings = <&kp RA(Y)>;
+            layers = <SYM>;
+        };
+
+        combo_sz {
+            timeout-ms = <UNICODE_COMBO_TIMEOUT>;
+            key-positions = <UC_S UC_Z>;
+            bindings = <&kp RA(S)>;
+            layers = <SYM>;
         };
     };
-
+    
     behaviors { 
         // tap -> dollar | shift + tap -> euro
         dllr_euro: dllr_euro {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DLLR>, <&dollar_euro>;
+            bindings = <&kp DLLR>, <&kp RA(N5)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         hml: homerow_mods_left {
